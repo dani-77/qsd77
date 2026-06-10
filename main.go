@@ -8,6 +8,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var (
+	version = "1.0.0"
+)
+
 func runQuickshell(args []string) {
 	cmd := exec.Command("qs", args...)
 	saida, err := cmd.CombinedOutput()
