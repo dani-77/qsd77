@@ -14,7 +14,7 @@ go build
 sudo install qsd77 /usr/bin/
 ```
 
-Autocompletions for bash, fish and zsh can be genrated:
+Autocompletions for bash, fish and zsh can be generated:
 
 ```
 qsd77 completion bash
