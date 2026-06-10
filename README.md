@@ -1,6 +1,6 @@
 # qsd77
 
-qsd77 is cli tool built on go for quickshell-d77.
+qsd77 is cli tool built with go for quickshell-d77.
 
 ## How to
 
