@@ -22,12 +22,11 @@ qsd77 completion bash
 
 ## Usage
 
-    command	            case		            
-|---------------------------------------|
-qsd77 launcher  | calls launcher	      |
-|qsd77 locker	  | lock screen		        |
-|qsd77 session	| calls session menu	  |
-|_______________________________________|
+qsd77 launcher -> calls the launcher menu
+
+qsd77 locker -> lock the screen
+
+qsd77 session -> calls the session menu
 
 
 Enjoy
