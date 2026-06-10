@@ -23,11 +23,11 @@ qsd77 completion bash
 ## Usage
 
 ```
-|command	|	case		|
+|command	      |	case		              |
 |---------------------------------------|
-|qsd77 launcher | calls launcher	|
-|qsd77 locker	| lock screen		|
-|qsd77 session	| calls session menu	|
+|qsd77 launcher | calls launcher	      |
+|qsd77 locker	| lock screen		          |
+|qsd77 session	| calls session menu	  |
 |_______________________________________|
 
 
