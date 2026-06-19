@@ -51,10 +51,19 @@ var sessionCmd = &cobra.Command{
 			runQuickshell([]string{"ipc", "call", "session", "toggle"})
 		},
 	}
+	
+	var wallpaperCmd = &cobra.Command{
+		Use:   "wallpaper",
+		Short: "toggle wallpaper menu",
+		Run: func(cmd *cobra.Command, args []string) {
+			runQuickshell([]string{"ipc", "call", "wallpaper", "toggle"})
+		},
+	}
 	rootCmd.AddCommand(launcherCmd)
 	rootCmd.AddCommand(lockerCmd)
 	rootCmd.AddCommand(sessionCmd)
-
+	rootCmd.AddCommand(wallpaperCmd)
+	
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
