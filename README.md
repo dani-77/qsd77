@@ -28,5 +28,7 @@ qsd77 locker -> lock the screen
 
 qsd77 session -> calls the session menu
 
+qsd77 wallpaper -> calls wallpaper selection
+
 
 Enjoy
