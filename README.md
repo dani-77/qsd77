@@ -34,6 +34,8 @@ qsd77 completion bash
 
 ## Usage
 
+qsd77 dashboard -> calls the dashboard
+
 qsd77 launcher -> calls the launcher menu
 
 qsd77 locker -> lock the screen
