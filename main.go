@@ -10,10 +10,12 @@ import (
 
 var (
 	version = "1.0.0"
+	config  string
 )
 
 func runQuickshell(args []string) {
-	cmd := exec.Command("qs", args...)
+	fullArgs := append([]string{"-c", config}, args...)
+	cmd := exec.Command("qs", fullArgs...)
 	saida, err := cmd.CombinedOutput()
 	if err != nil {
 		fmt.Printf("Error: %v\n%s", err, string(saida))
@@ -27,6 +29,8 @@ func main() {
 		Use:   "qsd77",
 		Short: "qsd77, a bridge to quickshell-d77",
 	}
+
+	rootCmd.PersistentFlags().StringVarP(&config, "config", "c", "quickshell-d77", "quickshell shell/config name (e.g. utumno, quickshell-d77)")
 
 var launcherCmd = &cobra.Command{
 		Use:   "launcher",
@@ -68,12 +72,29 @@ var dashboardCmd = &cobra.Command{
 		},
 	}
 	
+	var ipcCmd = &cobra.Command{
+		Use:   "ipc",
+		Short: "raw passthrough to quickshell IPC",
+	}
+
+	var ipcCallCmd = &cobra.Command{
+		Use:   "call <target> <action> [args...]",
+		Short: "call any quickshell IPC target/action directly",
+		Args:  cobra.MinimumNArgs(2),
+		Run: func(cmd *cobra.Command, args []string) {
+			runQuickshell(append([]string{"ipc", "call"}, args...))
+		},
+	}
+
+	ipcCmd.AddCommand(ipcCallCmd)
+
 	rootCmd.AddCommand(launcherCmd)
 	rootCmd.AddCommand(lockerCmd)
 	rootCmd.AddCommand(sessionCmd)
 	rootCmd.AddCommand(wallpaperCmd)
 	rootCmd.AddCommand(dashboardCmd)
-	
+	rootCmd.AddCommand(ipcCmd)
+
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)

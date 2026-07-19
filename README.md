@@ -30,5 +30,23 @@ qsd77 session -> calls the session menu
 
 qsd77 wallpaper -> calls wallpaper selection
 
+### Choosing a shell/config
+
+All commands accept a `-c`/`--config` flag to target a specific quickshell
+config (defaults to `quickshell-d77`):
+
+```
+qsd77 launcher -c utumno
+```
+
+### Raw IPC passthrough
+
+For any IPC target/action not wrapped by a named command, use `ipc call`
+directly, same as `qs ipc call ...`:
+
+```
+qsd77 ipc call launcher toggle -c utumno
+qsd77 ipc call session open somearg -c quickshell-d77
+```
 
 Enjoy
