@@ -14,6 +14,18 @@ go build
 sudo install qsd77 /usr/bin/
 ```
 
+Or simply:
+
+```
+sudo make install
+```
+
+To uninstall:
+
+```
+sudo make uninstall
+```
+
 Autocompletions for bash, fish and zsh can be generated:
 
 ```
