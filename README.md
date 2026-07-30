@@ -1,6 +1,6 @@
 # qsd77
 
-qsd77 is cli tool built with go for quickshell-d77.
+qsd77 is a cli tool built with go for quickshell-d77.
 
 ## How to
 
@@ -41,6 +41,8 @@ qsd77 launcher -> calls the launcher menu
 qsd77 locker -> lock the screen
 
 qsd77 ollama -> calls the ollama chat popup
+
+qsd77 run [config] -> launches a quickshell config directly (defaults to -c/--config), instead of sending an IPC call to an already-running instance
 
 qsd77 session -> calls the session menu
 
