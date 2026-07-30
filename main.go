@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	version = "1.3.1"
+	version = "1.3.2"
 	config  string
 )
 
@@ -93,7 +93,15 @@ var dashboardCmd = &cobra.Command{
 			runQuickshell([]string{"ipc", "call", "dashboard", "toggle"})
 		},
 	}
-	
+
+var ollamaCmd = &cobra.Command{
+		Use:   "ollama",
+		Short: "toggle ollama chat popup",
+		Run: func(cmd *cobra.Command, args []string) {
+			runQuickshell([]string{"ipc", "call", "ollamachat", "toggle"})
+		},
+	}
+
 	var runCmd = &cobra.Command{
 		Use:   "run [config]",
 		Short: "launch a quickshell config (defaults to -c/--config, e.g. quickshell-d77)",
@@ -129,6 +137,7 @@ var dashboardCmd = &cobra.Command{
 	rootCmd.AddCommand(sessionCmd)
 	rootCmd.AddCommand(wallpaperCmd)
 	rootCmd.AddCommand(dashboardCmd)
+	rootCmd.AddCommand(ollamaCmd)
 	rootCmd.AddCommand(ipcCmd)
 
 	if err := rootCmd.Execute(); err != nil {
