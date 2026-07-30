@@ -40,6 +40,8 @@ qsd77 launcher -> calls the launcher menu
 
 qsd77 locker -> lock the screen
 
+qsd77 ollama -> calls the ollama chat popup
+
 qsd77 session -> calls the session menu
 
 qsd77 wallpaper -> calls wallpaper selection
