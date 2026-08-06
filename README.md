@@ -1,70 +1,109 @@
-# qsd77
+<p align="center">
+  <img src="assets/icon.png" width="128" alt="qsd77 icon">
+</p>
 
-qsd77 is a cli tool built with go for quickshell-d77.
+<h1 align="center">qsd77</h1>
 
-## How to
+<p align="center">
+  A short, friendly command for controlling
+  <a href="https://github.com/dani-77/quickshell-d77">quickshell-d77</a> and
+  <a href="https://github.com/dani-77/utumno">Utumno</a> from a terminal, a keybind, or a
+  script — without typing out a full <code>qs ipc call ...</code> command every time.
+</p>
 
+---
+
+## What is this?
+
+Both quickshell-d77 and Utumno are controlled through short remote commands — opening
+the launcher, locking the screen, changing the wallpaper, and so on. `qsd77` wraps those
+commands into a single, memorable tool, so instead of:
+
+```sh
+qs -c quickshell-d77 ipc call launcher toggle
 ```
+
+you just type:
+
+```sh
+qsd77 launcher
+```
+
+It works with **either** shell: it talks to quickshell-d77 by default, and to Utumno
+with one extra flag.
+
+## Before you install
+
+You need [Quickshell](https://quickshell.org) (the `qs` command) with
+[quickshell-d77](https://github.com/dani-77/quickshell-d77) or
+[Utumno](https://github.com/dani-77/utumno) already installed and running — `qsd77` is a
+convenience wrapper around them, not a replacement.
+
+## Installing
+
+```sh
 git clone https://github.com/dani-77/qsd77.git ~/qsd77
-
 cd ~/qsd77
-
-go build
-
-sudo install qsd77 /usr/bin/
-```
-
-Or simply:
-
-```
 sudo make install
 ```
 
-To uninstall:
+That builds the tool and installs it to `/usr/bin/qsd77`. To uninstall later:
 
-```
+```sh
 sudo make uninstall
 ```
 
-Autocompletions for bash, fish and zsh can be generated:
+## Using it
 
+```sh
+qsd77 launcher     # open the app launcher
+qsd77 wallpaper    # open the wallpaper picker
+qsd77 locker       # lock the screen
+qsd77 session      # open the power/session menu
+qsd77 dashboard    # open the dashboard
+qsd77 ollama       # open the AI chat popup
 ```
+
+By default these target quickshell-d77. If you're running **Utumno** instead, add
+`-c utumno`:
+
+```sh
+qsd77 launcher -c utumno
+qsd77 wallpaper -c utumno
+```
+
+### Launching a shell directly
+
+`qsd77 run` starts a Quickshell config directly, instead of talking to one that's
+already running — handy for a compositor's autostart:
+
+```sh
+qsd77 run                # starts quickshell-d77
+qsd77 run -c utumno      # starts Utumno
+```
+
+### Shell autocompletion
+
+Tab-completion for bash, fish and zsh can be generated on demand:
+
+```sh
 qsd77 completion bash
 ```
 
-## Usage
+Follow your shell's usual instructions for loading a completion script (e.g. source the
+output above from your `.bashrc`, or save it under your fish/zsh completions directory).
 
-qsd77 dashboard -> calls the dashboard
+## Uninstalling
 
-qsd77 launcher -> calls the launcher menu
-
-qsd77 locker -> lock the screen
-
-qsd77 ollama -> calls the ollama chat popup
-
-qsd77 run [config] -> launches a quickshell config directly (defaults to -c/--config), instead of sending an IPC call to an already-running instance
-
-qsd77 session -> calls the session menu
-
-qsd77 wallpaper -> calls wallpaper selection
-
-### Choosing a shell/config
-
-All commands accept a `-c`/`--config` flag to target a specific quickshell
-config (defaults to `quickshell-d77`):
-
-```
-qsd77 launcher -c utumno
+```sh
+sudo make uninstall
 ```
 
-### Raw IPC passthrough
+## More
 
-For any IPC target/action not wrapped by a named command, use `ipc call`
-directly, same as `qs ipc call ...`:
+For the full command reference, including raw IPC passthrough for anything not covered
+above, see the [technical documentation](doc/README.md).
 
-```
-qsd77 ipc call launcher toggle -c utumno
-qsd77 ipc call session open somearg -c quickshell-d77
-```
+## License
 
-Enjoy
+MIT — see [LICENSE](LICENSE).
