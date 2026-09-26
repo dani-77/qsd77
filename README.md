@@ -53,6 +53,14 @@ That builds the tool and installs it to `/usr/bin/qsd77`. To uninstall later:
 sudo make uninstall
 ```
 
+It's also packaged:
+
+- **Arch Linux**: in the AUR as [`qsd77`](https://aur.archlinux.org/packages/qsd77)
+  (`yay -S qsd77`); the same `PKGBUILD` is in [`packaging/arch`](packaging/arch/PKGBUILD).
+- **Void Linux**: an `xbps-src` template is in
+  [`packaging/void/qsd77`](packaging/void/qsd77/template) (a copy of the one in
+  [`d77void/srcpkgs-d77`](https://github.com/d77void/srcpkgs-d77)).
+
 ## Using it
 
 ```sh
