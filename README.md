@@ -13,6 +13,11 @@
 
 ---
 
+> **Note:** [quickshell-d77](https://github.com/dani-77/quickshell-d77) is archived —
+> [Utumno](https://github.com/dani-77/utumno) superseded it and now carries everything it
+> had (dashboard, music picker and greeter included). qsd77 still defaults to
+> `quickshell-d77` for existing setups; on Utumno add `-c utumno` to every command.
+
 ## What is this?
 
 Both quickshell-d77 and Utumno are controlled through short remote commands — opening

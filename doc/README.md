@@ -4,6 +4,11 @@
 
 qsd77 is a cli tool built with go for quickshell-d77.
 
+> **Note:** [quickshell-d77](https://github.com/dani-77/quickshell-d77) is archived —
+> [Utumno](https://github.com/dani-77/utumno) superseded it and now carries everything it
+> had (dashboard, music picker and greeter included). qsd77 still defaults to
+> `quickshell-d77` for existing setups; on Utumno add `-c utumno` to every command.
+
 ## How to
 
 ```
