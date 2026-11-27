@@ -49,10 +49,10 @@ func launchQuickshell(cfg string) {
 func main() {
 	var rootCmd = &cobra.Command{
 		Use:   "qsd77",
-		Short: "qsd77, a bridge to quickshell-d77",
+		Short: "qsd77, a bridge to Utumno (and other Quickshell configs)",
 	}
 
-	rootCmd.PersistentFlags().StringVarP(&config, "config", "c", "quickshell-d77", "quickshell shell/config name (e.g. utumno, quickshell-d77)")
+	rootCmd.PersistentFlags().StringVarP(&config, "config", "c", "utumno", "quickshell shell/config name (e.g. utumno, quickshell-d77)")
 
 var launcherCmd = &cobra.Command{
 		Use:   "launcher",
@@ -104,7 +104,7 @@ var ollamaCmd = &cobra.Command{
 
 	var runCmd = &cobra.Command{
 		Use:   "run [config]",
-		Short: "launch a quickshell config (defaults to -c/--config, e.g. quickshell-d77)",
+		Short: "launch a quickshell config (defaults to -c/--config, e.g. utumno)",
 		Args:  cobra.MaximumNArgs(1),
 		Run: func(cmd *cobra.Command, args []string) {
 			cfg := config

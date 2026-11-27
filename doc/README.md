@@ -2,12 +2,12 @@
 
 > Looking to install or use qsd77? See the [root README](../README.md) instead.
 
-qsd77 is a cli tool built with go for quickshell-d77.
+qsd77 is a cli tool built with go for Utumno (and other Quickshell configs).
 
 > **Note:** [quickshell-d77](https://github.com/dani-77/quickshell-d77) is archived —
 > [Utumno](https://github.com/dani-77/utumno) superseded it and now carries everything it
-> had (dashboard, music picker and greeter included). qsd77 still defaults to
-> `quickshell-d77` for existing setups; on Utumno add `-c utumno` to every command.
+> had (dashboard, music picker and greeter included). qsd77 now targets Utumno by
+> default; for an existing quickshell-d77 setup, add `-c quickshell-d77`.
 
 ## How to
 
@@ -58,10 +58,10 @@ qsd77 wallpaper -> calls wallpaper selection
 ### Choosing a shell/config
 
 All commands accept a `-c`/`--config` flag to target a specific quickshell
-config (defaults to `quickshell-d77`):
+config (defaults to `utumno`):
 
 ```
-qsd77 launcher -c utumno
+qsd77 launcher -c quickshell-d77
 ```
 
 ### Raw IPC passthrough
@@ -70,7 +70,7 @@ For any IPC target/action not wrapped by a named command, use `ipc call`
 directly, same as `qs ipc call ...`:
 
 ```
-qsd77 ipc call launcher toggle -c utumno
+qsd77 ipc call launcher toggle
 qsd77 ipc call session open somearg -c quickshell-d77
 ```
 

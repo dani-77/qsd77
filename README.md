@@ -6,7 +6,6 @@
 
 <p align="center">
   A short, friendly command for controlling
-  <a href="https://github.com/dani-77/quickshell-d77">quickshell-d77</a> and
   <a href="https://github.com/dani-77/utumno">Utumno</a> from a terminal, a keybind, or a
   script — without typing out a full <code>qs ipc call ...</code> command every time.
 </p>
@@ -15,17 +14,17 @@
 
 > **Note:** [quickshell-d77](https://github.com/dani-77/quickshell-d77) is archived —
 > [Utumno](https://github.com/dani-77/utumno) superseded it and now carries everything it
-> had (dashboard, music picker and greeter included). qsd77 still defaults to
-> `quickshell-d77` for existing setups; on Utumno add `-c utumno` to every command.
+> had (dashboard, music picker and greeter included). qsd77 now targets Utumno by
+> default; for an existing quickshell-d77 setup, add `-c quickshell-d77`.
 
 ## What is this?
 
-Both quickshell-d77 and Utumno are controlled through short remote commands — opening
+Utumno is controlled through short remote commands — opening
 the launcher, locking the screen, changing the wallpaper, and so on. `qsd77` wraps those
 commands into a single, memorable tool, so instead of:
 
 ```sh
-qs -c quickshell-d77 ipc call launcher toggle
+qs -c utumno ipc call launcher toggle
 ```
 
 you just type:
@@ -34,15 +33,14 @@ you just type:
 qsd77 launcher
 ```
 
-It works with **either** shell: it talks to quickshell-d77 by default, and to Utumno
-with one extra flag.
+It talks to Utumno by default, and to any other Quickshell config (such as the
+archived quickshell-d77) with one extra flag.
 
 ## Before you install
 
 You need [Quickshell](https://quickshell.org) (the `qs` command) with
-[quickshell-d77](https://github.com/dani-77/quickshell-d77) or
 [Utumno](https://github.com/dani-77/utumno) already installed and running — `qsd77` is a
-convenience wrapper around them, not a replacement.
+convenience wrapper around it, not a replacement.
 
 ## Installing
 
@@ -77,12 +75,12 @@ qsd77 dashboard    # open the dashboard
 qsd77 ollama       # open the AI chat popup
 ```
 
-By default these target quickshell-d77. If you're running **Utumno** instead, add
-`-c utumno`:
+By default these target Utumno. To talk to another config — for example an existing
+quickshell-d77 setup — add `-c`:
 
 ```sh
-qsd77 launcher -c utumno
-qsd77 wallpaper -c utumno
+qsd77 launcher -c quickshell-d77
+qsd77 wallpaper -c quickshell-d77
 ```
 
 ### Launching a shell directly
@@ -91,8 +89,8 @@ qsd77 wallpaper -c utumno
 already running — handy for a compositor's autostart:
 
 ```sh
-qsd77 run                # starts quickshell-d77
-qsd77 run -c utumno      # starts Utumno
+qsd77 run                    # starts Utumno
+qsd77 run -c quickshell-d77  # starts another config
 ```
 
 ### Shell autocompletion
