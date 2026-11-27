@@ -54,7 +54,7 @@ func main() {
 
 	rootCmd.PersistentFlags().StringVarP(&config, "config", "c", "utumno", "quickshell shell/config name (e.g. utumno, quickshell-d77)")
 
-var launcherCmd = &cobra.Command{
+	var launcherCmd = &cobra.Command{
 		Use:   "launcher",
 		Short: "toggle launcher",
 		Run: func(cmd *cobra.Command, args []string) {
@@ -62,7 +62,7 @@ var launcherCmd = &cobra.Command{
 		},
 	}
 
-var lockerCmd = &cobra.Command{
+	var lockerCmd = &cobra.Command{
 		Use:   "locker",
 		Short: "lock screen",
 		Run: func(cmd *cobra.Command, args []string) {
@@ -70,15 +70,15 @@ var lockerCmd = &cobra.Command{
 		},
 	}
 
-var sessionCmd = &cobra.Command{
+	var sessionCmd = &cobra.Command{
 		Use:   "session",
 		Short: "toggle session menu",
 		Run: func(cmd *cobra.Command, args []string) {
 			runQuickshell([]string{"ipc", "call", "session", "toggle"})
 		},
 	}
-	
-var wallpaperCmd = &cobra.Command{
+
+	var wallpaperCmd = &cobra.Command{
 		Use:   "wallpaper",
 		Short: "toggle wallpaper menu",
 		Run: func(cmd *cobra.Command, args []string) {
@@ -86,7 +86,7 @@ var wallpaperCmd = &cobra.Command{
 		},
 	}
 
-var dashboardCmd = &cobra.Command{
+	var dashboardCmd = &cobra.Command{
 		Use:   "dashboard",
 		Short: "toggle dashboard",
 		Run: func(cmd *cobra.Command, args []string) {
@@ -94,7 +94,7 @@ var dashboardCmd = &cobra.Command{
 		},
 	}
 
-var ollamaCmd = &cobra.Command{
+	var ollamaCmd = &cobra.Command{
 		Use:   "ollama",
 		Short: "toggle ollama chat popup",
 		Run: func(cmd *cobra.Command, args []string) {
